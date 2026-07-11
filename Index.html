@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Visibilidad IA — K.shing</title>
+<style>
+  :root{
+    --ink:#141310;
+    --ink-soft:#1f1d18;
+    --paper:#EFE9DD;
+    --paper-dim:#DDD5C2;
+    --brass:#B8863B;
+    --brass-bright:#D8A857;
+    --alert:#B5472B;
+    --line: rgba(239,233,221,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:"SF Mono","Roboto Mono",Consolas,monospace;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  header{padding:28px 0 8px;}
+  .nav-row{display:flex;justify-content:space-between;align-items:center;}
+  .brand{font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass-bright);font-weight:600;}
+  .brand span{color:var(--paper);opacity:0.55;font-weight:400;}
+  .hero{padding:56px 0 40px;border-bottom:1px solid var(--line);}
+  .eyebrow{color:var(--brass-bright);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;}
+  h1{
+    font-size:44px;
+    margin:0 0 18px;
+    font-weight:400;
+    line-height:1.08;
+  }
+  h1 em{font-style:italic;color:var(--brass-bright);}
+  .sub{font-size:17px;color:var(--paper);opacity:0.72;max-width:560px;margin:0 0 36px;}
+  .scan{
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0;
+    overflow:hidden;
+    max-width:640px;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .scan-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    font-size:12px;color:var(--paper);opacity:0.45;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--paper);opacity:0.25;}
+  .scan-body{padding:22px 24px 26px;font-size:14.5px;}
+  .q{color:var(--paper);opacity:0.55;margin-bottom:14px;}
+  .q .mono{color:var(--brass-bright);opacity:1;}
+  .a-line{
+    display:flex;gap:10px;margin-bottom:9px;
+    opacity:0;
+    animation:reveal 0.5s ease forwards;
+  }
+  .a-line .num{color:var(--paper);opacity:0.35;width:16px;flex-shrink:0;}
+  .a-line.missing{color:var(--paper);opacity:0.3;}
+  .a-line.missing .biz{border-bottom:1px dashed var(--alert);}
+  @keyframes reveal{to{opacity:1;}}
+  .l1{animation-delay:0.3s;}
+  .l2{animation-delay:0.7s;}
+  .l3{animation-delay:1.1s;}
+  .l4{animation-delay:1.7s;}
+  .verdict{
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+    color:var(--alert);font-size:13.5px;
+    opacity:0;animation:reveal 0.6s ease forwards;animation-delay:2.2s;
+  }
+  .form-section{padding:56px 0 64px;}
+  .form-head h2{
+    font-size:28px;font-weight:400;margin:0 0 8px;
+  }
+  .form-head p{color:var(--paper);opacity:0.65;font-size:15px;margin:0 0 32px;max-width:480px;}
+  form{max-width:480px;}
+  .field{margin-bottom:18px;}
+  label{
+    display:block;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;
+    color:var(--brass-bright);margin-bottom:7px;
+  }
+  input,select{
+    width:100%;padding:12px 14px;
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--paper);
+    font-size:15px;
+    font-family:inherit;
+  }
+  input::placeholder{color:var(--paper);opacity:0.3;}
+  input:focus,select:focus{outline:2px solid var(--brass-bright);outline-offset:1px;}
+  button{
+    width:100%;
+    padding:14px 20px;
+    background:var(--brass);
+    color:var(--ink);
+    border:none;border-radius:6px;
+    font-size:15.5px;font-weight:600;
+    cursor:pointer;
+    margin-top:8px;
+    transition:background 0.15s ease;
+  }
+  button:hover{background:var(--brass-bright);}
+  button:focus-visible{outline:2px solid var(--paper);outline-offset:2px;}
+  .fine{font-size:12.5px;color:var(--paper);opacity:0.45;margin-top:12px;}
+  .result{
+    display:none;
+    max-width:520px;
+    margin-top:36px;
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px 26px 22px;
+  }
+  .result.show{display:block;}
+  .score-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .score{font-size:40px;color:var(--alert);}
+  .score-label{font-size:13px;color:var(--paper);opacity:0.55;}
+  .result h3{font-size:15px;margin:20px 0 10px;font-weight:600;color:var(--brass-bright);}
+  .checklist{list-style:none;padding:0;margin:0;}
+  .checklist li{
+    padding:9px 0;border-bottom:1px solid var(--line);
+    font-size:14px;display:flex;gap:10px;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .mark{color:var(--alert);flex-shrink:0;}
+  .cta-box{
+    margin-top:22px;padding-top:20px;border-top:1px dashed var(--line);
+  }
+  .cta-box p{font-size:14px;opacity:0.7;margin:0 0 12px;}
+  .cta-btn{
+    display:inline-block;
+    background:transparent;
+    border:1px solid var(--brass);
+    color:var(--brass-bright);
+    padding:11px 20px;border-radius:6px;
+    font-size:14.5px;font-weight:600;
+    text-decoration:none;
+  }
+  .cta-btn:hover{background:var(--brass);color:var(--ink);}
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:12.5px;color:var(--paper);opacity:0.4;}
+  @media (max-width:600px){
+    h1{font-size:32px;}
+    .scan-body{padding:18px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .a-line,.verdict{animation:none;opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="nav-row">
+    <div class="brand">K.SHING <span>/ diagnóstico ia</span></div>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="eyebrow">Antes de que tu cliente te encuentre, le pregunta a la IA</div>
+  <h1 class="display">¿Tu negocio existe <em>para ChatGPT</em>?</h1>
+  <p class="sub">Cada vez más gente ya no busca en Google — le pregunta directo a la IA. Si tu negocio no aparece en esa respuesta, no existe para ese cliente. Míralo en vivo:</p>
+
+  <div class="scan">
+    <div class="scan-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp;&nbsp;consulta simulada a IA</div>
+    <div class="scan-body">
+      <div class="q">Usuario pregunta&nbsp;&mdash;&nbsp;<span class="mono">"¿cuál es el mejor plomero en Guadalajara?"</span></div>
+      <div class="a-line l1"><span class="num">1</span><span>Plomería Hernández &mdash; 4.8★, responde en &lt;1hr</span></div>
+      <div class="a-line l2"><span class="num">2</span><span>Fontanería del Valle &mdash; precios publicados, servicio 24/7</span></div>
+      <div class="a-line l3"><span class="num">3</span><span>Plomero Express GDL &mdash; catálogo de servicios claro</span></div>
+      <div class="a-line l4 missing"><span class="num">?</span><span class="biz">tu negocio</span></div>
+      <div class="verdict">La IA no tuvo suficiente información pública sobre tu negocio para recomendarlo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section wrap">
+  <div class="form-head">
+    <h2 class="display">Revisa el tuyo, gratis</h2>
+    <p>3 datos. Te decimos qué tan visible es tu negocio para la IA ahora mismo, y qué te está faltando.</p>
+  </div>
+
+  <form id="auditForm">
+    <div class="field">
+      <label for="bizName">Nombre del negocio</label>
+      <input type="text" id="bizName" placeholder="ej. Plomería Hernández" required>
+    </div>
+    <div class="field">
+      <label for="category">Giro / categoría</label>
+      <input type="text" id="category" placeholder="ej. plomero, restaurante, dentista" required>
+    </div>
+    <div class="field">
+      <label for="city">Ciudad</label>
+      <input type="text" id="city" placeholder="ej. Guadalajara, Jal." required>
+    </div>
+    <div class="field">
+      <label for="url">Sitio web (si tienes)</label>
+      <input type="text" id="url" placeholder="ej. www.tunegocio.com — opcional">
+    </div>
+    <button type="submit">Ver mi diagnóstico</button>
+    <p class="fine">Sin costo. Sin tarjeta. Toma menos de un minuto.</p>
+  </form>
+
+  <div class="result" id="result">
+    <div class="score-row">
+      <span class="score mono" id="scoreNum">—</span>
+      <span class="score-label">de 100 &mdash; visibilidad IA actual</span>
+    </div>
+    <h3>Lo que la IA no encuentra de <span id="resultBizName"></span>:</h3>
+    <ul class="checklist" id="checklistItems"></ul>
+    <div class="cta-box">
+      <p>Este diagnóstico es el primer paso. Para corregirlo &mdash; contenido, precios publicados, ficha optimizada &mdash; agenda una sesión presencial y lo resolvemos juntos.</p>
+      <a class="cta-btn" href="#">Agendar sesión</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  K.shing — diagnóstico de visibilidad IA para negocios locales. Este es un demo del flujo; los resultados mostrados son ilustrativos.
+</footer>
+
+<script>
+document.getElementById('auditForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('bizName').value || 'tu negocio';
+  const category = document.getElementById('category').value || 'tu giro';
+  const hasUrl = document.getElementById('url').value.trim().length > 0;
+
+  const score = hasUrl ? (28 + Math.floor(Math.random()*15)) : (8 + Math.floor(Math.random()*10));
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('resultBizName').textContent = name;
+
+  const allItems = [
+    'Sin página de precios públicos que la IA pueda citar',
+    'Sin preguntas frecuentes (FAQ) publicadas sobre ' + category,
+    'Ficha de Google Business incompleta o sin reseñas recientes',
+    'Sin datos estructurados (schema) que ayuden a la IA a leer tu sitio',
+    'Poca o nula presencia en directorios que la IA consulta'
+  ];
+  const list = document.getElementById('checklistItems');
+  list.innerHTML = '';
+  allItems.forEach(function(item){
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="mark">&#9679;</span><span>' + item + '</span>';
+    list.appendChild(li);
+  });
+
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+
+</body>
+</html>
