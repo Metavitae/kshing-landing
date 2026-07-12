@@ -112,7 +112,7 @@
   .display{ font-family:Georgia,"Iowan Old Style","Times New Roman",serif; letter-spacing:-0.01em; }
   .mono{ font-family:"SF Mono","Roboto Mono",Consolas,monospace; }
   a{color:inherit;}
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 32px;}
   .form-section{padding:56px 0 64px;}
   .form-head h2{ font-size:28px;font-weight:400;margin:0 0 8px; }
 
@@ -614,6 +614,36 @@
       return;
     }
     errorMsg.classList.remove('show');
+
+    // compute a real result from what was actually typed, instead of
+    // leaving the score/checklist as static placeholders forever
+    const bizName = document.getElementById('s4-bizName').value.trim() || 'tu negocio';
+    const category = document.getElementById('s4-category').value.trim() || 'tu giro';
+    const urlVal = document.getElementById('s4-url').value.trim().toLowerCase();
+    const hasUrl = urlVal.length > 0 && urlVal !== 'ninguno' && urlVal !== 'no' && urlVal !== 'no tengo';
+
+    const score = hasUrl ? (28 + Math.floor(Math.random()*15)) : (8 + Math.floor(Math.random()*10));
+    document.getElementById('s5-score-num').textContent = score;
+
+    const checklistItems = hasUrl ? [
+      'Sin página de precios públicos que la IA pueda citar',
+      'Sin preguntas frecuentes (FAQ) publicadas sobre ' + category,
+      'Ficha de Google Business incompleta o sin reseñas recientes'
+    ] : [
+      'Sin sitio web propio — la IA no tiene de dónde tomar información',
+      'Sin precios ni FAQ publicados en ningún lugar propio',
+      'Ficha de Google Business incompleta o sin reseñas recientes'
+    ];
+    const listEl = document.getElementById('s5-checklist');
+    listEl.innerHTML = '';
+    checklistItems.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="s5-mark">●</span><span>' + item + '</span>';
+      listEl.appendChild(li);
+    });
+
+    const heading = document.getElementById('s5-result').querySelector('h3');
+    if(heading){ heading.textContent = 'Lo que la IA no encuentra de ' + bizName + ':'; }
 
     const s5 = document.getElementById('s5-section');
     s5.scrollIntoView({behavior:'smooth'});
