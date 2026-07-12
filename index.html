@@ -673,7 +673,7 @@
     const s5Rect = s5.getBoundingClientRect();
     const s5Top = window.scrollY + s5Rect.top;
     const s5ScrollableHeight = s5Rect.height - window.innerHeight;
-    const targetScroll = s5Top + (s5ScrollableHeight * 0.97);
+    const targetScroll = s5Top + (s5ScrollableHeight * 0.52);
     window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     if(window.__s5Update) window.__s5Update();
   });
