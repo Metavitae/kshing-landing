@@ -118,6 +118,20 @@
 
   /* ============ SECTION 1: opening scene (wandering eye, no text) ============ */
   #s1-wrap{ position:relative; width:100%; height:100vh; overflow:hidden; background:var(--ink); }
+  #s1-scroll-cue{
+    position:absolute; bottom:5vh; left:50%; z-index:8;
+    transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    color:var(--paper); opacity:0.55;
+    font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    animation: s1CueBounce 1.8s ease-in-out infinite;
+    pointer-events:none;
+  }
+  #s1-scroll-cue svg{ width:22px; height:22px; }
+  @keyframes s1CueBounce{
+    0%,100%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,10px); }
+  }
   .s1-circle{ position:absolute; border-radius:50%; will-change:transform,opacity; }
   #s1-eye{ position:absolute; z-index:5; will-change:transform; }
   .s1-face{ fill:#F6F2EA; stroke:#231E16; stroke-width:2; }
@@ -237,6 +251,12 @@
 
 <!-- SECTION 1: opening scene -->
 <div id="s1-wrap">
+  <div id="s1-scroll-cue">
+    <span>desliza</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
   <svg id="s1-eye" width="180" height="180" viewBox="0 0 120 120">
     <circle class="s1-face" cx="60" cy="60" r="58"/>
     <clipPath id="s1EyeClip"><circle cx="60" cy="60" r="58"/></clipPath>
