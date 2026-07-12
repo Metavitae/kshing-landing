@@ -666,7 +666,15 @@
     if(heading){ heading.textContent = 'Lo que la IA no encuentra de ' + bizName + ':'; }
 
     const s5 = document.getElementById('s5-section');
-    s5.scrollIntoView({behavior:'smooth'});
+    // scroll well INTO the section instead of just to its top edge --
+    // landing at the very start shows nothing yet (this section reveals
+    // itself as you scroll through it), which looked like a broken blank
+    // page. Jump to ~90% through it so results+prices are already visible.
+    const s5Rect = s5.getBoundingClientRect();
+    const s5Top = window.scrollY + s5Rect.top;
+    const s5ScrollableHeight = s5Rect.height - window.innerHeight;
+    const targetScroll = s5Top + (s5ScrollableHeight * 0.9);
+    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     if(window.__s5Update) window.__s5Update();
   });
   checkComplete();
