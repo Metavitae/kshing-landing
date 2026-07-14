@@ -190,6 +190,7 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
   body{
     background:var(--ink);
     color:var(--paper);
@@ -331,6 +332,16 @@
   .s5-checklist{ list-style:none; padding:0; margin:0; }
   .s5-checklist li{ padding:8px 0; border-bottom:1px solid var(--line); font-size:14px; display:flex; gap:10px; }
   .s5-checklist li:last-child{ border-bottom:none; }
+  .s5-placeholder-msg{
+    border:1px dashed var(--line); border-radius:8px; padding:16px 18px;
+    font-size:14px; opacity:0.7; line-height:1.5;
+  }
+  .s5-placeholder-msg a{
+    color:var(--brass-bright); font-weight:600; text-decoration:none;
+    border-bottom:1px solid var(--brass-bright); white-space:nowrap;
+  }
+  #s5-result.has-result .s5-placeholder-msg{ display:none; }
+  #s5-result:not(.has-result) .s5-checklist{ display:none; }
   .s5-mark{ color:var(--alert); }
   #s5-prices{ width:100%; max-width:440px; display:flex; flex-direction:column; gap:10px; }
   .s5-price-card{ background:var(--ink-soft); border:1px solid var(--line); border-radius:10px; padding:16px 18px; will-change:transform,opacity; }
@@ -444,12 +455,9 @@
   <div id="s5-stage">
     <div id="s5-result">
       <div class="s5-score-row"><span class="s5-score" id="s5-score-num">—</span><span class="s5-score-label" data-i18n="s5_scorelabel">de 100 &mdash; visibilidad IA actual</span></div>
-      <h3 data-i18n="s5_h3_default">Lo que la IA no encuentra:</h3>
-      <ul class="s5-checklist" id="s5-checklist">
-        <li><span class="s5-mark">●</span><span data-i18n="s5_item1_default">Sin precios publicados</span></li>
-        <li><span class="s5-mark">●</span><span data-i18n="s5_item2_default">Sin preguntas frecuentes</span></li>
-        <li><span class="s5-mark">●</span><span data-i18n="s5_item3_default">Ficha de Google incompleta</span></li>
-      </ul>
+      <h3 data-i18n="s5_h3_default">Así se verá tu diagnóstico:</h3>
+      <p class="s5-placeholder-msg" data-i18n="s5_placeholder_msg">Completa el <a href="#s4-section">formulario de arriba ↑</a> con los datos de tu negocio para ver aquí lo que la IA no encuentra.</p>
+      <ul class="s5-checklist" id="s5-checklist"></ul>
     </div>
     <div id="s5-prices">
       <div class="s5-price-card" data-side="left"><div class="s5-name" data-i18n="s5_price1_name">Corrección — negocios locales</div><div class="s5-amt">$4,000 – $9,000 MXN</div></div>
@@ -531,10 +539,8 @@ const I18N = {
       s4_error: "Falta completar algún campo — revisa lo marcado en rojo.",
       s4_fine: "Sin costo. Sin tarjeta.",
       s5_scorelabel: "de 100 &mdash; visibilidad IA actual",
-      s5_h3_default: "Lo que la IA no encuentra:",
-      s5_item1_default: "Sin precios publicados",
-      s5_item2_default: "Sin preguntas frecuentes",
-      s5_item3_default: "Ficha de Google incompleta",
+      s5_h3_default: "Así se verá tu diagnóstico:",
+      s5_placeholder_msg: 'Completa el <a href="#s4-section">formulario de arriba ↑</a> con los datos de tu negocio para ver aquí lo que la IA no encuentra.',
       s5_price1_name: "Corrección — negocios locales",
       s5_price2_name: "Página de artista / creador",
       s6_call: "Llámanos:",
@@ -596,10 +602,8 @@ const I18N = {
       s4_error: "A field is missing — check what's marked in red.",
       s4_fine: "Free. No card.",
       s5_scorelabel: "out of 100 &mdash; current AI visibility",
-      s5_h3_default: "What the AI can't find:",
-      s5_item1_default: "No published pricing",
-      s5_item2_default: "No FAQ",
-      s5_item3_default: "Incomplete Google listing",
+      s5_h3_default: "This is what your diagnosis will look like:",
+      s5_placeholder_msg: 'Fill out the <a href="#s4-section">form above ↑</a> with your business details to see what the AI can\'t find, right here.',
       s5_price1_name: "Fix — local businesses",
       s5_price2_name: "Artist / creator page",
       s6_call: "Call us:",
@@ -883,6 +887,7 @@ window.renderKorekoResult = function(result){
   const bizName = result.bizNameRaw || pack.biz_fallback;
   const category = result.categoryRaw || pack.category_fallback;
 
+  document.getElementById('s5-result').classList.add('has-result');
   document.getElementById('s5-score-num').textContent = result.score;
 
   const checklistItems = result.hasUrl ? pack.checklistHasUrl(category) : pack.checklistNoUrl();
