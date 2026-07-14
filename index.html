@@ -8,42 +8,88 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Koreko",
-  "description": "Diagnóstico y corrección de visibilidad ante inteligencia artificial (ChatGPT, Gemini, IA de Google) para negocios locales y artistas en México.",
-  "areaServed": "MX",
-  "priceRange": "$$",
-  "makesOffer": [
+  "@graph": [
     {
-      "@type": "Offer",
-      "name": "Diagnóstico de Visibilidad IA",
-      "description": "Revisión gratuita de qué tan visible es un negocio ante inteligencia artificial.",
-      "price": "0",
-      "priceCurrency": "MXN"
+      "@type": "ProfessionalService",
+      "inLanguage": "es",
+      "name": "Koreko",
+      "description": "Diagnóstico y corrección de visibilidad ante inteligencia artificial (ChatGPT, Gemini, IA de Google) para negocios locales y artistas en México.",
+      "areaServed": "MX",
+      "priceRange": "$$",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Diagnóstico de Visibilidad IA",
+          "description": "Revisión gratuita de qué tan visible es un negocio ante inteligencia artificial.",
+          "price": "0",
+          "priceCurrency": "MXN"
+        },
+        {
+          "@type": "Offer",
+          "name": "Corrección para negocios locales",
+          "description": "Precios publicados, FAQ, datos estructurados y ficha optimizada para negocios de servicio local.",
+          "priceCurrency": "MXN",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "4000",
+            "maxPrice": "9000",
+            "priceCurrency": "MXN"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Página de artista / creador (EPK)",
+          "description": "Página que reúne biografía, plataformas y datos estructurados para artistas y creadores.",
+          "priceCurrency": "MXN",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "3000",
+            "maxPrice": "7000",
+            "priceCurrency": "MXN"
+          }
+        }
+      ]
     },
     {
-      "@type": "Offer",
-      "name": "Corrección para negocios locales",
-      "description": "Precios publicados, FAQ, datos estructurados y ficha optimizada para negocios de servicio local.",
-      "priceCurrency": "MXN",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": "4000",
-        "maxPrice": "9000",
-        "priceCurrency": "MXN"
-      }
-    },
-    {
-      "@type": "Offer",
-      "name": "Página de artista / creador (EPK)",
-      "description": "Página que reúne biografía, plataformas y datos estructurados para artistas y creadores.",
-      "priceCurrency": "MXN",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": "3000",
-        "maxPrice": "7000",
-        "priceCurrency": "MXN"
-      }
+      "@type": "ProfessionalService",
+      "inLanguage": "en",
+      "name": "Koreko",
+      "description": "AI-visibility diagnostic and fix service (ChatGPT, Gemini, Google AI answers) for local businesses and artists in Mexico.",
+      "areaServed": "MX",
+      "priceRange": "$$",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "AI Visibility Diagnostic",
+          "description": "Free review of how visible a business is to AI tools.",
+          "price": "0",
+          "priceCurrency": "MXN"
+        },
+        {
+          "@type": "Offer",
+          "name": "Fix for local businesses",
+          "description": "Published pricing, FAQ, structured data, and an optimized listing for local service businesses.",
+          "priceCurrency": "MXN",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "4000",
+            "maxPrice": "9000",
+            "priceCurrency": "MXN"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Artist / creator page (EPK)",
+          "description": "A page bringing together bio, platforms, and structured data for artists and creators.",
+          "priceCurrency": "MXN",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "3000",
+            "maxPrice": "7000",
+            "priceCurrency": "MXN"
+          }
+        }
+      ]
     }
   ]
 }
@@ -51,39 +97,82 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "¿Qué es un diagnóstico de visibilidad IA?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Es una revisión de qué tan visible es tu negocio cuando alguien le pregunta a herramientas de inteligencia artificial como ChatGPT, Gemini o las respuestas de IA de Google. Revisamos si tienes precios publicados, preguntas frecuentes, datos estructurados, zona de servicio clara y reseñas visibles."
-      }
+      "@type": "FAQPage",
+      "inLanguage": "es",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es un diagnóstico de visibilidad IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es una revisión de qué tan visible es tu negocio cuando alguien le pregunta a herramientas de inteligencia artificial como ChatGPT, Gemini o las respuestas de IA de Google. Revisamos si tienes precios publicados, preguntas frecuentes, datos estructurados, zona de servicio clara y reseñas visibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta el diagnóstico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El diagnóstico inicial es gratuito. Si decides corregir lo que falta, el servicio de corrección para negocios locales cuesta entre $4,000 y $9,000 MXN, según lo que se necesite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿También trabajan con artistas o músicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Para artistas y creadores con presencia repartida en varias plataformas, ofrecemos una página que reúne biografía, fotos, shows y enlaces en un solo lugar, con un costo de $3,000 a $7,000 MXN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué ciudades de México trabajan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trabajamos con negocios y artistas en toda la República Mexicana; el diagnóstico funciona sin importar la ubicación."
+          }
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta el diagnóstico?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El diagnóstico inicial es gratuito. Si decides corregir lo que falta, el servicio de corrección para negocios locales cuesta entre $4,000 y $9,000 MXN, según lo que se necesite."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿También trabajan con artistas o músicos?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Para artistas y creadores con presencia repartida en varias plataformas, ofrecemos una página que reúne biografía, fotos, shows y enlaces en un solo lugar, con un costo de $3,000 a $7,000 MXN."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿En qué ciudades de México trabajan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Trabajamos con negocios y artistas en toda la República Mexicana; el diagnóstico funciona sin importar la ubicación."
-      }
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI visibility diagnostic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's a review of how visible your business is when someone asks an AI tool like ChatGPT, Gemini, or Google's AI answers. We check whether you have published pricing, FAQs, structured data, a clear service area, and visible reviews."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does the diagnostic cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The initial diagnostic is free. If you decide to fix what's missing, the local-business fix service costs between $4,000 and $9,000 MXN, depending on what's needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you also work with artists or musicians?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For artists and creators with a presence spread across multiple platforms, we offer a page that brings together bio, photos, shows, and links in one place, for $3,000 to $7,000 MXN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What cities in Mexico do you work in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We work with businesses and artists across Mexico; the diagnostic works regardless of location."
+          }
+        }
+      ]
     }
   ]
 }
@@ -115,6 +204,18 @@
   .wrap{max-width:920px;margin:0 auto;padding:0 32px;}
   .form-section{padding-top:56px; padding-bottom:64px;}
   .form-head h2{ font-size:28px;font-weight:400;margin:0 0 8px; }
+
+  /* ============ i18n: language toggle + FOUC guard ============ */
+  body.i18n-loading{ visibility:hidden; }
+  #lang-toggle{
+    position:fixed; top:16px; right:16px; z-index:50;
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:20px;
+    padding:7px 14px; font-size:12px; letter-spacing:0.04em; cursor:pointer;
+    color:var(--paper); opacity:0.85; user-select:none;
+    font-family:"SF Mono","Roboto Mono",monospace;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,0.25);
+  }
+  #lang-toggle:hover{ opacity:1; }
 
   /* ============ SECTION 1: opening scene (wandering eye, no text) ============ */
   #s1-wrap{ position:relative; width:100%; height:100vh; overflow:hidden; background:var(--ink); }
@@ -247,12 +348,17 @@
   .s6-dotsep{ color:var(--alert); font-size:18px; }
 </style>
 </head>
-<body>
+<body class="i18n-loading">
+<noscript><style>body{visibility:visible!important;}</style></noscript>
+
+<button id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+  <span id="lang-toggle-label">EN</span>
+</button>
 
 <!-- SECTION 1: opening scene -->
 <div id="s1-wrap">
   <div id="s1-scroll-cue">
-    <span>desliza</span>
+    <span data-i18n="s1_cue">desliza</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
@@ -275,19 +381,19 @@
 <div id="s2-section">
   <div id="s2-stage">
     <div id="s2-headline">
-      <div class="s2-eyebrow">Antes de que tu cliente te encuentre, le pregunta a la IA</div>
-      <h1 class="display">¿Tu negocio existe <em>para ChatGPT</em>?</h1>
-      <p class="s2-sub">Cada vez más gente ya no busca en Google — le pregunta directo a la IA. Si tu negocio no aparece en esa respuesta, no existe para ese cliente.</p>
+      <div class="s2-eyebrow" data-i18n="s2_eyebrow">Antes de que tu cliente te encuentre, le pregunta a la IA</div>
+      <h1 class="display" data-i18n="s2_h1">¿Tu negocio existe <em>para ChatGPT</em>?</h1>
+      <p class="s2-sub" data-i18n="s2_sub">Cada vez más gente ya no busca en Google — le pregunta directo a la IA. Si tu negocio no aparece en esa respuesta, no existe para ese cliente.</p>
     </div>
     <div id="s2-scan">
       <div class="s2-scan-box">
-        <div class="s2-scan-bar"><span class="s2-dot"></span><span class="s2-dot"></span><span class="s2-dot"></span>&nbsp;&nbsp;consulta simulada a IA</div>
+        <div class="s2-scan-bar"><span class="s2-dot"></span><span class="s2-dot"></span><span class="s2-dot"></span>&nbsp;&nbsp;<span data-i18n="s2_scanbar">consulta simulada a IA</span></div>
         <div class="s2-scan-body">
-          <div class="s2-q">Usuario pregunta&nbsp;&mdash;&nbsp;<span class="mono">"¿mejor plomero en Guadalajara?"</span></div>
+          <div class="s2-q" data-i18n="s2_q">Usuario pregunta&nbsp;&mdash;&nbsp;<span class="mono">"¿mejor plomero en Guadalajara?"</span></div>
           <div class="s2-a-line"><span class="s2-num">1</span><span>Plomería Hernández &mdash; 4.8★</span></div>
           <div class="s2-a-line"><span class="s2-num">2</span><span>Fontanería del Valle &mdash; 24/7</span></div>
-          <div class="s2-a-line missing"><span class="s2-num">?</span><span class="s2-biz">tu negocio</span></div>
-          <div class="s2-verdict">La IA no tuvo suficiente información pública para recomendarlo.</div>
+          <div class="s2-a-line missing"><span class="s2-num">?</span><span class="s2-biz" data-i18n="s2_missing">tu negocio</span></div>
+          <div class="s2-verdict" data-i18n="s2_verdict">La IA no tuvo suficiente información pública para recomendarlo.</div>
         </div>
       </div>
     </div>
@@ -312,23 +418,23 @@
       <circle cx="60" cy="60" r="58" fill="none" stroke="#231E16" stroke-width="2"/>
     </svg>
     <div id="s3-word">KOREKO</div>
-    <div id="s3-tag">DIAGNÓSTICO DE VISIBILIDAD IA</div>
+    <div id="s3-tag" data-i18n="s3_tag">DIAGNÓSTICO DE VISIBILIDAD IA</div>
   </div>
 </div>
 
 <!-- SECTION 4: form -->
 <div id="s4-section">
   <div id="s4-form-wrap">
-    <h2 class="display">Revisa el tuyo, gratis</h2>
-    <p class="s4-lead">Completa los 4 datos. El botón para ver tu resultado aparece solo cuando termines.</p>
+    <h2 class="display" data-i18n="s4_h2">Revisa el tuyo, gratis</h2>
+    <p class="s4-lead" data-i18n="s4_lead">Completa los 4 datos. El botón para ver tu resultado aparece solo cuando termines.</p>
     <form id="s4-form">
-      <div class="s4-field"><label for="s4-bizName">Nombre del negocio</label><input type="text" id="s4-bizName" placeholder="ej. Plomería Hernández" required></div>
-      <div class="s4-field"><label for="s4-category">Giro / categoría</label><input type="text" id="s4-category" placeholder="ej. plomero, restaurante, dentista" required></div>
-      <div class="s4-field"><label for="s4-city">Ciudad</label><input type="text" id="s4-city" placeholder="ej. Guadalajara, Jal." required></div>
-      <div class="s4-field"><label for="s4-url">Sitio web (si tienes)</label><input type="text" id="s4-url" placeholder="ej. www.tunegocio.com — o escribe 'ninguno'"></div>
-      <button type="submit" id="s4-reveal-btn">Ver mi diagnóstico →</button>
-      <p id="s4-error">Falta completar algún campo — revisa lo marcado en rojo.</p>
-      <p class="s4-fine">Sin costo. Sin tarjeta.</p>
+      <div class="s4-field"><label for="s4-bizName" data-i18n="s4_label_name">Nombre del negocio</label><input type="text" id="s4-bizName" data-i18n-placeholder="s4_ph_name" placeholder="ej. Plomería Hernández" required></div>
+      <div class="s4-field"><label for="s4-category" data-i18n="s4_label_category">Giro / categoría</label><input type="text" id="s4-category" data-i18n-placeholder="s4_ph_category" placeholder="ej. plomero, restaurante, dentista" required></div>
+      <div class="s4-field"><label for="s4-city" data-i18n="s4_label_city">Ciudad</label><input type="text" id="s4-city" data-i18n-placeholder="s4_ph_city" placeholder="ej. Guadalajara, Jal." required></div>
+      <div class="s4-field"><label for="s4-url" data-i18n="s4_label_url">Sitio web (si tienes)</label><input type="text" id="s4-url" data-i18n-placeholder="s4_ph_url" placeholder="ej. www.tunegocio.com — o escribe 'ninguno'"></div>
+      <button type="submit" id="s4-reveal-btn" data-i18n="s4_button">Ver mi diagnóstico →</button>
+      <p id="s4-error" data-i18n="s4_error">Falta completar algún campo — revisa lo marcado en rojo.</p>
+      <p class="s4-fine" data-i18n="s4_fine">Sin costo. Sin tarjeta.</p>
     </form>
   </div>
 </div>
@@ -337,17 +443,17 @@
 <div id="s5-section">
   <div id="s5-stage">
     <div id="s5-result">
-      <div class="s5-score-row"><span class="s5-score" id="s5-score-num">—</span><span class="s5-score-label">de 100 &mdash; visibilidad IA actual</span></div>
-      <h3>Lo que la IA no encuentra:</h3>
+      <div class="s5-score-row"><span class="s5-score" id="s5-score-num">—</span><span class="s5-score-label" data-i18n="s5_scorelabel">de 100 &mdash; visibilidad IA actual</span></div>
+      <h3 data-i18n="s5_h3_default">Lo que la IA no encuentra:</h3>
       <ul class="s5-checklist" id="s5-checklist">
-        <li><span class="s5-mark">●</span><span>Sin precios publicados</span></li>
-        <li><span class="s5-mark">●</span><span>Sin preguntas frecuentes</span></li>
-        <li><span class="s5-mark">●</span><span>Ficha de Google incompleta</span></li>
+        <li><span class="s5-mark">●</span><span data-i18n="s5_item1_default">Sin precios publicados</span></li>
+        <li><span class="s5-mark">●</span><span data-i18n="s5_item2_default">Sin preguntas frecuentes</span></li>
+        <li><span class="s5-mark">●</span><span data-i18n="s5_item3_default">Ficha de Google incompleta</span></li>
       </ul>
     </div>
     <div id="s5-prices">
-      <div class="s5-price-card" data-side="left"><div class="s5-name">Corrección — negocios locales</div><div class="s5-amt">$4,000 – $9,000 MXN</div></div>
-      <div class="s5-price-card" data-side="right"><div class="s5-name">Página de artista / creador</div><div class="s5-amt">$3,000 – $7,000 MXN</div></div>
+      <div class="s5-price-card" data-side="left"><div class="s5-name" data-i18n="s5_price1_name">Corrección — negocios locales</div><div class="s5-amt">$4,000 – $9,000 MXN</div></div>
+      <div class="s5-price-card" data-side="right"><div class="s5-name" data-i18n="s5_price2_name">Página de artista / creador</div><div class="s5-amt">$3,000 – $7,000 MXN</div></div>
     </div>
   </div>
 </div>
@@ -355,45 +461,226 @@
 <!-- SECTION 6: contact marquee -->
 <div id="s6-wrap">
   <div id="s6-track">
-    <a class="s6-item" href="tel:+523221174070"><span class="s6-accent">Llámanos:</span>&nbsp;322 117 4070</a>
+    <a class="s6-item" href="tel:+523221174070"><span class="s6-accent" data-i18n="s6_call">Llámanos:</span>&nbsp;322 117 4070</a>
     <span class="s6-dotsep">●</span>
-    <a class="s6-item" href="https://wa.me/523221174070" target="_blank" rel="noopener"><span class="s6-accent">WhatsApp:</span>&nbsp;322 117 4070</a>
+    <a class="s6-item" href="https://wa.me/523221174070" target="_blank" rel="noopener"><span class="s6-accent" data-i18n="s6_whatsapp">WhatsApp:</span>&nbsp;322 117 4070</a>
     <span class="s6-dotsep">●</span>
-    <a class="s6-item" href="mailto:metavitae@gmail.com"><span class="s6-accent">Correo:</span>&nbsp;metavitae@gmail.com</a>
+    <a class="s6-item" href="mailto:metavitae@gmail.com"><span class="s6-accent" data-i18n="s6_email">Correo:</span>&nbsp;metavitae@gmail.com</a>
     <span class="s6-dotsep">●</span>
-    <a class="s6-item" href="https://metavitae.github.io/koreko-landing/" target="_blank" rel="noopener"><span class="s6-accent">Sitio:</span>&nbsp;metavitae.github.io/koreko-landing</a>
+    <a class="s6-item" href="https://metavitae.github.io/koreko-landing/" target="_blank" rel="noopener"><span class="s6-accent" data-i18n="s6_site">Sitio:</span>&nbsp;metavitae.github.io/koreko-landing</a>
     <span class="s6-dotsep">●</span>
   </div>
 </div>
 
 <!-- Pricing detail + FAQ (reused, matters for the site's own AI visibility) -->
 <section class="form-section wrap" id="faq">
-  <div class="form-head"><h2 class="display">Preguntas frecuentes</h2></div>
+  <div class="form-head"><h2 class="display" data-i18n="faq_h2">Preguntas frecuentes</h2></div>
   <div style="max-width:640px;">
     <div style="border-bottom:1px solid var(--line);padding:16px 0;">
-      <div style="font-weight:600;margin-bottom:6px;">¿Qué es un diagnóstico de visibilidad IA?</div>
-      <div style="font-size:14px;opacity:0.7;">Es una revisión de qué tan visible es tu negocio cuando alguien le pregunta a herramientas de inteligencia artificial como ChatGPT, Gemini o las respuestas de IA de Google.</div>
+      <div style="font-weight:600;margin-bottom:6px;" data-i18n="faq_q1">¿Qué es un diagnóstico de visibilidad IA?</div>
+      <div style="font-size:14px;opacity:0.7;" data-i18n="faq_a1">Es una revisión de qué tan visible es tu negocio cuando alguien le pregunta a herramientas de inteligencia artificial como ChatGPT, Gemini o las respuestas de IA de Google.</div>
     </div>
     <div style="border-bottom:1px solid var(--line);padding:16px 0;">
-      <div style="font-weight:600;margin-bottom:6px;">¿Cuánto cuesta el diagnóstico?</div>
-      <div style="font-size:14px;opacity:0.7;">El diagnóstico inicial es gratuito. La corrección tiene costo según el servicio — ver precios arriba.</div>
+      <div style="font-weight:600;margin-bottom:6px;" data-i18n="faq_q2">¿Cuánto cuesta el diagnóstico?</div>
+      <div style="font-size:14px;opacity:0.7;" data-i18n="faq_a2">El diagnóstico inicial es gratuito. La corrección tiene costo según el servicio — ver precios arriba.</div>
     </div>
     <div style="border-bottom:1px solid var(--line);padding:16px 0;">
-      <div style="font-weight:600;margin-bottom:6px;">¿También trabajan con artistas o músicos?</div>
-      <div style="font-size:14px;opacity:0.7;">Sí, tenemos un servicio específico para artistas y creadores con presencia repartida en varias plataformas.</div>
+      <div style="font-weight:600;margin-bottom:6px;" data-i18n="faq_q3">¿También trabajan con artistas o músicos?</div>
+      <div style="font-size:14px;opacity:0.7;" data-i18n="faq_a3">Sí, tenemos un servicio específico para artistas y creadores con presencia repartida en varias plataformas.</div>
     </div>
     <div style="padding:16px 0;">
-      <div style="font-weight:600;margin-bottom:6px;">¿En qué ciudades de México trabajan?</div>
-      <div style="font-size:14px;opacity:0.7;">Trabajamos con negocios y artistas en toda la República Mexicana.</div>
+      <div style="font-weight:600;margin-bottom:6px;" data-i18n="faq_q4">¿En qué ciudades de México trabajan?</div>
+      <div style="font-size:14px;opacity:0.7;" data-i18n="faq_a4">Trabajamos con negocios y artistas en toda la República Mexicana.</div>
     </div>
   </div>
 </section>
 
 <footer class="wrap" style="border-top:1px solid var(--line);padding-top:26px;padding-bottom:40px;font-size:12.5px;opacity:0.4;">
-  Koreko — diagnóstico de visibilidad IA para negocios locales y artistas en México.
+  <span data-i18n="footer_text">Koreko — diagnóstico de visibilidad IA para negocios locales y artistas en México.</span>
 </footer>
 
 <script>
+/* ============ I18N: language detection + dictionary ============ */
+const I18N = {
+  es: {
+    title: "Diagnóstico de Visibilidad IA — Koreko",
+    metaDescription: "Koreko hace diagnósticos gratuitos de visibilidad ante inteligencia artificial para negocios locales y artistas en México, con servicio de corrección desde $3,000 MXN.",
+    htmlLang: "es-MX",
+    toggleLabel: "EN",
+    t: {
+      s1_cue: "desliza",
+      s2_eyebrow: "Antes de que tu cliente te encuentre, le pregunta a la IA",
+      s2_h1: '¿Tu negocio existe <em>para ChatGPT</em>?',
+      s2_sub: "Cada vez más gente ya no busca en Google — le pregunta directo a la IA. Si tu negocio no aparece en esa respuesta, no existe para ese cliente.",
+      s2_scanbar: "consulta simulada a IA",
+      s2_q: 'Usuario pregunta&nbsp;&mdash;&nbsp;<span class="mono">"¿mejor plomero en Guadalajara?"</span>',
+      s2_missing: "tu negocio",
+      s2_verdict: "La IA no tuvo suficiente información pública para recomendarlo.",
+      s3_tag: "DIAGNÓSTICO DE VISIBILIDAD IA",
+      s4_h2: "Revisa el tuyo, gratis",
+      s4_lead: "Completa los 4 datos. El botón para ver tu resultado aparece solo cuando termines.",
+      s4_label_name: "Nombre del negocio",
+      s4_label_category: "Giro / categoría",
+      s4_label_city: "Ciudad",
+      s4_label_url: "Sitio web (si tienes)",
+      s4_ph_name: "ej. Plomería Hernández",
+      s4_ph_category: "ej. plomero, restaurante, dentista",
+      s4_ph_city: "ej. Guadalajara, Jal.",
+      s4_ph_url: "ej. www.tunegocio.com — o escribe 'ninguno'",
+      s4_button: "Ver mi diagnóstico →",
+      s4_error: "Falta completar algún campo — revisa lo marcado en rojo.",
+      s4_fine: "Sin costo. Sin tarjeta.",
+      s5_scorelabel: "de 100 &mdash; visibilidad IA actual",
+      s5_h3_default: "Lo que la IA no encuentra:",
+      s5_item1_default: "Sin precios publicados",
+      s5_item2_default: "Sin preguntas frecuentes",
+      s5_item3_default: "Ficha de Google incompleta",
+      s5_price1_name: "Corrección — negocios locales",
+      s5_price2_name: "Página de artista / creador",
+      s6_call: "Llámanos:",
+      s6_whatsapp: "WhatsApp:",
+      s6_email: "Correo:",
+      s6_site: "Sitio:",
+      faq_h2: "Preguntas frecuentes",
+      faq_q1: "¿Qué es un diagnóstico de visibilidad IA?",
+      faq_a1: "Es una revisión de qué tan visible es tu negocio cuando alguien le pregunta a herramientas de inteligencia artificial como ChatGPT, Gemini o las respuestas de IA de Google.",
+      faq_q2: "¿Cuánto cuesta el diagnóstico?",
+      faq_a2: "El diagnóstico inicial es gratuito. La corrección tiene costo según el servicio — ver precios arriba.",
+      faq_q3: "¿También trabajan con artistas o músicos?",
+      faq_a3: "Sí, tenemos un servicio específico para artistas y creadores con presencia repartida en varias plataformas.",
+      faq_q4: "¿En qué ciudades de México trabajan?",
+      faq_a4: "Trabajamos con negocios y artistas en toda la República Mexicana.",
+      footer_text: "Koreko — diagnóstico de visibilidad IA para negocios locales y artistas en México."
+    },
+    biz_fallback: "tu negocio",
+    category_fallback: "tu giro",
+    noSiteWords: ["ninguno","no","no tengo","ningun","n/a","na"],
+    checklistHasUrl: (category) => [
+      'Sin página de precios públicos que la IA pueda citar',
+      'Sin preguntas frecuentes (FAQ) publicadas sobre ' + category,
+      'Ficha de Google Business incompleta o sin reseñas recientes'
+    ],
+    checklistNoUrl: () => [
+      'Sin sitio web propio — la IA no tiene de dónde tomar información',
+      'Sin precios ni FAQ publicados en ningún lugar propio',
+      'Ficha de Google Business incompleta o sin reseñas recientes'
+    ],
+    resultHeading: (bizName) => 'Lo que la IA no encuentra de ' + bizName + ':'
+  },
+  en: {
+    title: "AI Visibility Diagnostic — Koreko",
+    metaDescription: "Koreko runs free AI-visibility diagnostics for local businesses and artists in Mexico, with a fix-it service starting at $3,000 MXN.",
+    htmlLang: "en",
+    toggleLabel: "ES",
+    t: {
+      s1_cue: "scroll",
+      s2_eyebrow: "Before your customer finds you, they ask the AI",
+      s2_h1: 'Does your business exist <em>for ChatGPT</em>?',
+      s2_sub: "More and more people don't search Google anymore — they ask the AI directly. If your business doesn't show up in that answer, it doesn't exist for that customer.",
+      s2_scanbar: "simulated AI query",
+      s2_q: 'User asks&nbsp;&mdash;&nbsp;<span class="mono">"best plumber in Guadalajara?"</span>',
+      s2_missing: "your business",
+      s2_verdict: "The AI didn't have enough public information to recommend it.",
+      s3_tag: "AI VISIBILITY DIAGNOSTIC",
+      s4_h2: "Check yours, free",
+      s4_lead: "Fill in the 4 fields. The button to see your result appears once you're done.",
+      s4_label_name: "Business name",
+      s4_label_category: "Field / category",
+      s4_label_city: "City",
+      s4_label_url: "Website (if you have one)",
+      s4_ph_name: "e.g. Hernández Plumbing",
+      s4_ph_category: "e.g. plumber, restaurant, dentist",
+      s4_ph_city: "e.g. Guadalajara, Jal.",
+      s4_ph_url: "e.g. www.yourbusiness.com — or type 'none'",
+      s4_button: "See my diagnosis →",
+      s4_error: "A field is missing — check what's marked in red.",
+      s4_fine: "Free. No card.",
+      s5_scorelabel: "out of 100 &mdash; current AI visibility",
+      s5_h3_default: "What the AI can't find:",
+      s5_item1_default: "No published pricing",
+      s5_item2_default: "No FAQ",
+      s5_item3_default: "Incomplete Google listing",
+      s5_price1_name: "Fix — local businesses",
+      s5_price2_name: "Artist / creator page",
+      s6_call: "Call us:",
+      s6_whatsapp: "WhatsApp:",
+      s6_email: "Email:",
+      s6_site: "Site:",
+      faq_h2: "Frequently asked questions",
+      faq_q1: "What is an AI visibility diagnostic?",
+      faq_a1: "It's a review of how visible your business is when someone asks an AI tool like ChatGPT, Gemini, or Google's AI answers.",
+      faq_q2: "How much does the diagnostic cost?",
+      faq_a2: "The initial diagnostic is free. The fix has a cost depending on the service — see pricing above.",
+      faq_q3: "Do you also work with artists or musicians?",
+      faq_a3: "Yes — we have a specific service for artists and creators with presence spread across several platforms.",
+      faq_q4: "What cities in Mexico do you work in?",
+      faq_a4: "We work with businesses and artists across Mexico.",
+      footer_text: "Koreko — AI visibility diagnostics for local businesses and artists in Mexico."
+    },
+    biz_fallback: "your business",
+    category_fallback: "your field",
+    noSiteWords: ["none","no","no site","n/a","na","dont have one","don't have one"],
+    checklistHasUrl: (category) => [
+      "No published pricing page the AI can cite",
+      "No FAQ published about " + category,
+      "Incomplete Google Business listing or no recent reviews"
+    ],
+    checklistNoUrl: () => [
+      "No website of its own — the AI has nowhere to pull information from",
+      "No pricing or FAQ published anywhere",
+      "Incomplete Google Business listing or no recent reviews"
+    ],
+    resultHeading: (bizName) => "What the AI can't find about " + bizName + ":"
+  }
+};
+
+function detectLang(){
+  const saved = localStorage.getItem('koreko-lang');
+  if(saved === 'es' || saved === 'en') return saved;
+  const nav = ((navigator.language || (navigator.languages && navigator.languages[0]) || 'es') + '').toLowerCase();
+  return nav.indexOf('en') === 0 ? 'en' : 'es';
+}
+
+window.KOREKO_LANG = detectLang();
+window.KOREKO_LAST_RESULT = null; // set on form submit, re-used if language is toggled after
+
+function applyLang(lang){
+  window.KOREKO_LANG = lang;
+  const pack = I18N[lang];
+  document.documentElement.lang = pack.htmlLang;
+  document.title = pack.title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', pack.metaDescription);
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(pack.t[key] !== undefined) el.innerHTML = pack.t[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(pack.t[key] !== undefined) el.setAttribute('placeholder', pack.t[key]);
+  });
+
+  const toggleLabel = document.getElementById('lang-toggle-label');
+  if(toggleLabel) toggleLabel.textContent = pack.toggleLabel;
+
+  // if the form was already submitted, re-render the dynamic result text
+  // in the new language too, instead of leaving it stuck in the old one
+  if(window.KOREKO_LAST_RESULT && window.renderKorekoResult){
+    window.renderKorekoResult(window.KOREKO_LAST_RESULT);
+  }
+
+  document.body.classList.remove('i18n-loading');
+}
+
+applyLang(window.KOREKO_LANG);
+
+document.getElementById('lang-toggle').addEventListener('click', () => {
+  const next = window.KOREKO_LANG === 'en' ? 'es' : 'en';
+  localStorage.setItem('koreko-lang', next);
+  applyLang(next);
+});
+
 /* ============ SECTION 1 SCRIPT: opening scene ============ */
 (function(){
   const PALETTE = ['#C46C54','#8CA282','#7896A8','#D6A34A','#9C7894','#647870','#CE8C60','#B5472B','#5C7A72','#B98A46'];
@@ -591,6 +878,26 @@
 })();
 
 /* ============ SECTION 4 SCRIPT: form ============ */
+window.renderKorekoResult = function(result){
+  const pack = I18N[window.KOREKO_LANG];
+  const bizName = result.bizNameRaw || pack.biz_fallback;
+  const category = result.categoryRaw || pack.category_fallback;
+
+  document.getElementById('s5-score-num').textContent = result.score;
+
+  const checklistItems = result.hasUrl ? pack.checklistHasUrl(category) : pack.checklistNoUrl();
+  const listEl = document.getElementById('s5-checklist');
+  listEl.innerHTML = '';
+  checklistItems.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="s5-mark">●</span><span>' + item + '</span>';
+    listEl.appendChild(li);
+  });
+
+  const heading = document.getElementById('s5-result').querySelector('h3');
+  if(heading){ heading.textContent = pack.resultHeading(bizName); }
+};
+
 (function(){
   const requiredFields = ['s4-bizName','s4-category','s4-city','s4-url'];
   const btn = document.getElementById('s4-reveal-btn');
@@ -636,34 +943,20 @@
     errorMsg.classList.remove('show');
 
     // compute a real result from what was actually typed, instead of
-    // leaving the score/checklist as static placeholders forever
-    const bizName = document.getElementById('s4-bizName').value.trim() || 'tu negocio';
-    const category = document.getElementById('s4-category').value.trim() || 'tu giro';
+    // leaving the score/checklist as static placeholders forever.
+    // Raw inputs are stored (not translated words) so the result can be
+    // fully re-rendered in the other language later if the person toggles.
+    const bizNameRaw = document.getElementById('s4-bizName').value.trim();
+    const categoryRaw = document.getElementById('s4-category').value.trim();
     const urlVal = document.getElementById('s4-url').value.trim().toLowerCase();
-    const hasUrl = urlVal.length > 0 && urlVal !== 'ninguno' && urlVal !== 'no' && urlVal !== 'no tengo';
+    const currentPack = I18N[window.KOREKO_LANG];
+    const noSiteWords = currentPack.noSiteWords;
+    const hasUrl = urlVal.length > 0 && noSiteWords.indexOf(urlVal) === -1;
 
     const score = hasUrl ? (28 + Math.floor(Math.random()*15)) : (8 + Math.floor(Math.random()*10));
-    document.getElementById('s5-score-num').textContent = score;
 
-    const checklistItems = hasUrl ? [
-      'Sin página de precios públicos que la IA pueda citar',
-      'Sin preguntas frecuentes (FAQ) publicadas sobre ' + category,
-      'Ficha de Google Business incompleta o sin reseñas recientes'
-    ] : [
-      'Sin sitio web propio — la IA no tiene de dónde tomar información',
-      'Sin precios ni FAQ publicados en ningún lugar propio',
-      'Ficha de Google Business incompleta o sin reseñas recientes'
-    ];
-    const listEl = document.getElementById('s5-checklist');
-    listEl.innerHTML = '';
-    checklistItems.forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = '<span class="s5-mark">●</span><span>' + item + '</span>';
-      listEl.appendChild(li);
-    });
-
-    const heading = document.getElementById('s5-result').querySelector('h3');
-    if(heading){ heading.textContent = 'Lo que la IA no encuentra de ' + bizName + ':'; }
+    window.KOREKO_LAST_RESULT = { bizNameRaw, categoryRaw, hasUrl, score };
+    window.renderKorekoResult(window.KOREKO_LAST_RESULT);
 
     const s5 = document.getElementById('s5-section');
     // scroll well INTO the section instead of just to its top edge --
@@ -673,7 +966,7 @@
     const s5Rect = s5.getBoundingClientRect();
     const s5Top = window.scrollY + s5Rect.top;
     const s5ScrollableHeight = s5Rect.height - window.innerHeight;
-    const targetScroll = s5Top + (s5ScrollableHeight * 0.52);
+    const targetScroll = s5Top + (s5ScrollableHeight * 0.92);
     window.scrollTo({ top: targetScroll, behavior: 'smooth' });
     if(window.__s5Update) window.__s5Update();
   });
